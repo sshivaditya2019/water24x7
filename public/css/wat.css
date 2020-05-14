@@ -1,0 +1,66 @@
+body {
+    background-image: url('https://images.wallpaperscraft.com/image/forest_fog_trees_126479_3840x2400.jpg');
+    background-position: absolute;
+    background-size: 1920px 1080px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.main {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 0px;
+    border-radius: 70px;
+    height: 1000px;
+    width: 1380px;
+    position: absolute;
+    margin: 30px 30px 30px 100px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.graph {
+    border: 200px bold;
+    width: 700px;
+    border-top-right-radius: 70px;
+    background-color: rgba(137, 43, 226, 0.623);
+}
+
+.report {
+    width: 900px;
+    height: 400px;
+    padding-left: 30px;
+    border-top-left-radius: 70px;
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+.report p {
+    text-align: center;
+    text-decoration-style: solid;
+    font-size: xx-large;
+    font-weight: 700px
+}
+
+.report p p {
+    font-size: x-large;
+}
+
+.report p h1 {
+    text-align: center;
+}
+
+.profit {
+    margin-bottom: 0px;
+    align-self: flex-end;
+    position: absolute;
+    bottom: 0;
+    top: 500;
+    right: 40;
+    left: 850;
+    margin-right: 5px;
+}
+
+.profit p {
+    font-size: 30px;
+}

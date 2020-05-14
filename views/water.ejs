@@ -1,0 +1,185 @@
+!
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WATER24X7</title>
+    <meta name="description" content="">
+    <!-- Latest compiled and minified plotly.js JavaScript -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8"></script>
+
+    <!-- OR use a specific plotly.js release (e.g. version 1.52.3) -->
+    <script src="https://cdn.plot.ly/plotly-1.52.3.min.js" charset="utf-8"></script>
+
+    <!-- OR an un-minified version is also available -->
+    <script src="https://cdn.plot.ly/plotly-latest.js" charset="utf-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/wat.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+    <div class="main">
+    <div class="container">
+      <div class="report">
+        <p><h1><%= city %></h1>
+          <p>
+            This report is for the above said block
+            After the green revolution ,TN was a significant producer of foodgrains: 
+            in 1965-66, the state accounted for 7% of the national output of 72 million tonnes. 
+            Presently the state’s share is less than 5% of the total production (260 million tonnes).
+            For better productivity, it is advisable that the state moves away from traditional water-intensive crops of paddy 
+            and sugarcane and tap into the benefits of flowers, fruits and vegetable cultivation.As corn consumes much less water, 
+            its productivity can be enhanced by testing and correcting soil, use of quality seeds and proper nurturing. 
+            The country’s productivity of the crop is a mere 800 kg per acre against 10,000 kg in developed countries. A policy to make TN a large producer of corn would help.
+            The lack of perennial rivers has also led to over-exploitation of groundwater for farming.
+            There, however, has been remarkable progress in the production and export of flowers, fruits and vegetables in recent years.
+            
+
+          </p>
+        </p>
+      </div>
+      <div class="profit">
+        <p>Based on the details provided these are the
+          following best crops to be grown ere:</p>
+            <p id="plant1"></p>
+            <p id="plant2"></p>
+            <p id="plant3"></p>
+            <p>The estimated profit is<p id="profit"></p></p>
+      </div>
+    
+    <div class="graph">
+        <div id="chart"></div>
+        <script>
+            var num = "<%= number %>";
+            if (num>=15) {
+              num = Math.sqrt(num)*3*(1/4);
+            }
+            var j = 1.00;
+            var arr = []
+            function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+            }
+
+            function getData() {
+                var data_map = [];
+                for (let i = 0; i < 10; i++){
+                    
+                    for (let k = j; k<j+0.1;k = k + 0.01){
+                        data_map.push(k*num)
+                    }
+                    j += 0.1;
+                }
+                console.log(data_map)
+                var w = 0;
+                var e = 10 ;
+                shuffle(data_map)
+                for (let q = 0; q < 10; q++){
+                    arr[q] = data_map.slice(w, e);
+                    w += 10;
+                    e += 10;
+                    console.log(w,e)
+                }
+                return arr;
+            }
+            var data = getData();
+            console.log(data);
+
+            Plotly.newPlot('chart', [{
+                z: data,
+                type: 'surface'
+            }]);
+            var water = "<%= rain %>";
+            var plant1 = "";
+            var plant2 = "";
+            var plant3 = "";
+            var profit = 0;
+            if (water>=200) {
+              plant1 = "Rice";
+              plant2 = "Beans";
+              plant3 = "Potato";
+              profit = 554000;
+            } else if(water<200 && water>=150) {
+              plant1 = "Tapioca";
+              plant2 = "Potato";
+              profit = 588000;
+            } else if(water<150 && water>=135) {
+              plant1 = "Rice";
+              plant2 = "Beans";
+              plant3 = "Brinjal";
+              profit = 822000;
+            } else if(water<135 && water>=116) {
+              plant1 = "Rice";
+              plant2 = "Beans";
+              plant3 = "Tomato";
+              profit = 438000;
+            } else if(water<116 && water>=112) {
+              plant1 = "Onion";
+              plant2 = "Beans";
+              plant3 = "Potato";
+              profit = 780000;
+            } else if(water<112 && water>=100) {
+              plant1 = "Wheat";
+              plant2 = "Rice";
+              profit = 254000;
+            } else if(water<100 && water>=90) {
+              plant1 = "Onion";
+              plant2 = "Beans";
+              plant3 = "Tomato";
+              profit = 664000
+            } else if(water<90 && water>=85) {
+              plant1 = "Onion";
+              plant2 = "Beans";
+              plant3 = "Brinjal";
+              profit = 1048000;
+            } else if(water<85 && water>=80) {
+              plant1 = "Tapioca";
+              plant2 = "Potato";
+              profit = 856000
+            } else if(water<80 && water>=70) {
+              plant1 = "Tapioca";
+              plant2 = "Tomato";
+              profit = 472000
+            } else {
+              plant1 = "Onion";
+              plant2 = "Wheat";
+              profit = 480000;
+            }
+            document.getElementById("plant1").innerHTML = plant1;
+            document.getElementById("plant2").innerHTML = plant2;
+            document.getElementById("plant3").innerHTML = plant3; 
+            document.getElementById("profit").innerHTML = profit;
+            
+        </script>
+    </div>
+    </div>
+  </div>
+</body>
+
+</html>
