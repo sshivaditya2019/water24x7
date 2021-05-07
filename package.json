@@ -15,6 +15,6 @@
     "mongoose": "^5.9.12",
     "plotly": "^1.0.6",
     "plotly.js": "^1.54.1",
-    "underscore": "^1.10.2"
+    "underscore": "^1.12.1"
   }
 }
