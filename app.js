@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://admin:Aditya%4026@dbms-fwfnu.mongodb.net/water"
+const uri = "mongodb+srv://admin:password@dbms-fwfnu.mongodb.net/water"
 MongoClient.connect(uri, function(err, client) {
     if (err) {
         console.log('Error occurred while connecting to MongoDB Atlas...\n', err);

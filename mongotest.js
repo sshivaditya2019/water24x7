@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://admin:Aditya%4026@dbms-fwfnu.mongodb.net/water";
+var url = "mongodb+srv://username:password@dbms-fwfnu.mongodb.net/water";
 
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;
